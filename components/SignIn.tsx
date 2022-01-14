@@ -9,7 +9,7 @@ import {
     Link,
     Stack,
   } from '@chakra-ui/react';
-  import logo from "../assets/SocialTap-logos_transparent.png"
+  import logo from "../assets/Social Tap-logos_transparent.png"
   import Image from 'next/image'
 
   export default function SignIn() {
