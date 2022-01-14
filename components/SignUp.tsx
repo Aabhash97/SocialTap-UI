@@ -141,9 +141,6 @@ export default function SignUp() {
                 !
               </Text>
             </Heading>
-            <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-              Come and Join Our Social Network !
-            </Text>
           </Stack>
           <Box as={"form"} mt={10}>
             <Stack spacing={4}>
