@@ -1,4 +1,3 @@
-
 import {
   Box,
   Flex,
@@ -15,71 +14,77 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-} from '@chakra-ui/icons';
-import Image from 'next/image'
-import logo from "../../assets/Social Tap-logos_transparent.png"
-
+} from "@chakra-ui/icons";
+import Image from "next/image";
+import logo from "../../assets/Social Tap-logos_transparent.png";
+import { useRouter } from "next/router";
 export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
-
+  const router = useRouter();
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
-        minH={'60px'}
+        bg={useColorModeValue("white", "gray.800")}
+        color={useColorModeValue("gray.600", "white")}
+        minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.900")}
+        align={"center"}
+      >
         <Flex
-          flex={{ base: 1, md: 'auto' }}
+          flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
+          display={{ base: "flex", md: "none" }}
+        >
           <IconButton
             onClick={onToggle}
             icon={
               isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
             }
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
+            variant={"ghost"}
+            aria-label={"Toggle Navigation"}
           />
         </Flex>
-       {/* <Image src = {logo} width = "100px" height = "100px"/> */}
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-      
+        {/* <Image src = {logo} width = "100px" height = "100px"/> */}
+        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}
-            fontWeight = "bold">
-           Social Tap
+            textAlign={useBreakpointValue({ base: "center", md: "left" })}
+            fontFamily={"heading"}
+            color={useColorModeValue("gray.800", "white")}
+            fontWeight="bold"
+          >
+            Social Tap
           </Text>
         </Flex>
 
         <Stack
           flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={6}>
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+        >
           <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
             fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'./signup'}
+            color={"white"}
+            bg={"pink.400"}
+            onClick={() => {
+              router.push("/signUp");
+            }}
             _hover={{
-              bg: 'pink.300',
-            }}>
+              bg: "pink.300",
+            }}
+          >
             Sign Up
           </Button>
         </Stack>
@@ -87,4 +92,3 @@ export default function Header() {
     </Box>
   );
 }
-
